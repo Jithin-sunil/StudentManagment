@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 30, 2025 at 11:32 AM
+-- Generation Time: Jul 31, 2025 at 01:26 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -284,6 +284,30 @@ CREATE TABLE `tbl_eventregistration` (
   `student_id` int(11) NOT NULL,
   `event_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_internalmark`
+--
+
+CREATE TABLE `tbl_internalmark` (
+  `internalmark_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `teacher_id` int(11) NOT NULL,
+  `subject_id` int(11) NOT NULL,
+  `semester_id` int(11) NOT NULL,
+  `course_id` int(11) NOT NULL,
+  `internalmark_mark` decimal(5,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_internalmark`
+--
+
+INSERT INTO `tbl_internalmark` (`internalmark_id`, `student_id`, `teacher_id`, `subject_id`, `semester_id`, `course_id`, `internalmark_mark`) VALUES
+(1, 1, 1, 1, 1, 1, 45.00),
+(2, 2, 1, 1, 1, 1, 20.00);
 
 -- --------------------------------------------------------
 
@@ -579,6 +603,12 @@ ALTER TABLE `tbl_eventregistration`
   ADD PRIMARY KEY (`eventregistration_id`);
 
 --
+-- Indexes for table `tbl_internalmark`
+--
+ALTER TABLE `tbl_internalmark`
+  ADD PRIMARY KEY (`internalmark_id`);
+
+--
 -- Indexes for table `tbl_leave`
 --
 ALTER TABLE `tbl_leave`
@@ -731,6 +761,12 @@ ALTER TABLE `tbl_event`
 --
 ALTER TABLE `tbl_eventregistration`
   MODIFY `eventregistration_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_internalmark`
+--
+ALTER TABLE `tbl_internalmark`
+  MODIFY `internalmark_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_leave`
